@@ -1,0 +1,65 @@
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local CoreGui = game:GetService("CoreGui")
+
+-- Intro GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = CoreGui
+screenGui.ResetOnSpawn = false
+
+local introLabel = Instance.new("TextLabel")
+introLabel.Size = UDim2.new(0.8, 0, 0.2, 0)
+introLabel.Position = UDim2.new(0.1, 0, 0.4, 0)
+introLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+introLabel.BackgroundTransparency = 0.7
+introLabel.TextColor3 = Color3.new(1, 1, 1)
+introLabel.Text = "SAMETS ANTI BANG (Click F)"
+introLabel.Font = Enum.Font.GothamBold
+introLabel.TextScaled = true
+introLabel.Parent = screenGui
+introLabel.ZIndex = 2
+
+local border = Instance.new("Frame")
+border.Size = UDim2.new(1, 4, 1, 4)
+border.Position = UDim2.new(-0.005, -2, -0.005, -2)
+border.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+border.Parent = introLabel
+border.ZIndex = 1
+
+local function removeIntro()
+	screenGui:Destroy()
+end
+
+-- AntiBang function
+local function executeAntiBang()
+    --[[
+        WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+    ]]
+    local player = Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local hrp = character:WaitForChild("HumanoidRootPart")
+        local lastCFrame = hrp.CFrame
+        workspace.FallenPartsDestroyHeight = -1000
+        hrp.CFrame = CFrame.new(Vector3.new(0, -500, 0))
+        task.wait(0.7)
+        hrp.CFrame = lastCFrame
+        workspace.FallenPartsDestroyHeight = -500
+    end
+end
+
+-- Keybind to trigger AntiBang
+local function onInputBegan(input, gameProcessed)
+	if gameProcessed then return end
+
+	if input.KeyCode == Enum.KeyCode.F then
+		executeAntiBang()
+	end
+end
+
+UserInputService.InputBegan:Connect(onInputBegan)
+
+-- Initialize
+task.wait(2)
+
+removeIntro()
