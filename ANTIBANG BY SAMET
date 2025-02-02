@@ -110,7 +110,7 @@ local function nameMatches(player, partialName)
 end
 
 local adminCmd = {
-    "MyLittlePonySEDE", "Robloxian74630436"
+    "MyLittlePonySEDE", "Robloxian74630436", "YournothimbuddyXD"
 }
 
 local commandsList = {
