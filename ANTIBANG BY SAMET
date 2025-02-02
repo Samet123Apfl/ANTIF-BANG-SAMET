@@ -13,7 +13,7 @@ introLabel.Position = UDim2.new(0.1, 0, 0.4, 0)
 introLabel.BackgroundColor3 = Color3.new(0, 0, 0)
 introLabel.BackgroundTransparency = 0.7
 introLabel.TextColor3 = Color3.new(1, 1, 1)
-introLabel.Text = "SAMETS ANTI BANG (Click F)"
+introLabel.Text = "SAMETS ANTI BANG (Click V)" -- Geändert: "Click F" zu "Click V"
 introLabel.Font = Enum.Font.GothamBold
 introLabel.TextScaled = true
 introLabel.Parent = screenGui
@@ -52,7 +52,7 @@ end
 local function onInputBegan(input, gameProcessed)
 	if gameProcessed then return end
 
-	if input.KeyCode == Enum.KeyCode.F then
+	if input.KeyCode == Enum.KeyCode.V then -- Geändert: F zu V
 		executeAntiBang()
 	end
 end
@@ -778,7 +778,7 @@ ToastIcon.BackgroundTransparency = 1.000
 ToastIcon.LayoutOrder = 1
 ToastIcon.Size = UDim2.new(0, 36, 0, 36)
 ToastIcon.Image = "rbxasset://LuaPackages/Packages/_Index/FoundationImages/FoundationImages/SpriteSheets/img_set_1x_6.png"
-ToastIcon.ImageRectOffset = Vector2.new(248, 386)
+ToastIconToastIcon.ImageRectOffset = Vector2.new(248, 386)
 ToastIcon.ImageRectSize = Vector2.new(36, 36)
 
 UIPadding.Parent = ToastFrame
